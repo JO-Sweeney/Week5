@@ -8,15 +8,15 @@ public class Game {
 	private Player mUser;
 	private Player mDealer;
 	private Scanner kboard;
-	private GameTracker trackGame;
+	private String mResult;
 	
 	
 	public Game() {
 		
-		mUser = new User();
-		mDealer = new Dealer();
-		kboard = new Scanner(System.in);
-		trackGame = new GameTracker();
+		mUser = new User();							//This game's user
+		mDealer = new Dealer();						//This game's dealer
+		kboard = new Scanner(System.in);	
+		mResult = "";
 		runGame();
 	}
 	
@@ -50,13 +50,13 @@ public class Game {
 		
 		if(mUser.showHand() > mDealer.showHand() && mUser.showHand() < 22) {
 			System.out.println("You have won!");
-			trackGame.addWin();
+			mResult = "win";
 		}else if(mUser.showHand() == mDealer.showHand()) {
 			System.out.println("It's a draw!");
-			trackGame.addDraw();
+			mResult = "draw";
 		}else {
 			System.out.println("You lose!");
-			trackGame.addLose();
+			mResult = "loss";
 		}
 	}
 	
@@ -73,8 +73,8 @@ public class Game {
 		this.kboard.close();
 	}
 	
-	public void endStats() {
-		trackGame.printStats(); 
+	public String getResult() {
+		return mResult;
 	}
 
 

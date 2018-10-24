@@ -1,7 +1,7 @@
 package Pontoop;
 
 
-public class Player {
+public abstract class Player {
 	
 	protected int currentHand;
 	
@@ -16,8 +16,8 @@ public class Player {
 	}
 	
 	public void addCard() {
-		int value = (int)(Math.random()*10)+1;
-		currentHand = currentHand + value;
+		int value = (int)(Math.random()*10)+1; 	//gives a random value between 1 and 11
+		currentHand = currentHand + value;		//Add random value to the player's hand
 	}
 	
 	

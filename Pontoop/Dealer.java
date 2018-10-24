@@ -4,15 +4,10 @@ public class Dealer extends Player {
 
 	public Dealer() {
 		
-		super();
-		this.addCard();
-		this.addCard();
+		super();				//initialise hand at 0 from superclass
+		super.addCard();		
+		super.addCard();		//Give the dealer 2 cards of a random value
 		
-	}
-	
-	public void addCard() {
-		int value = (int)(Math.random()*10)+1;
-		currentHand = currentHand + value;
 	}
 	
 }

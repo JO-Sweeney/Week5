@@ -7,13 +7,21 @@ public class GameTracker {
 	private int mWin;
 	private int mLose;
 	private int mDraw;
-	private ArrayList <Integer> statArray;
 	
 	public GameTracker() {
 		mWin = 0;
 		mLose = 0;
 		mDraw = 0;
-		statArray = new ArrayList<Integer>();
+	}
+	
+	public void setResult(String result) {
+		if(result.equalsIgnoreCase("win")) {
+			addWin();
+		}else if(result.equalsIgnoreCase("draw")) {
+			addDraw();
+		}else if(result.equalsIgnoreCase("loss")) {
+			addLoss();
+		}
 	}
 	
 	
@@ -21,7 +29,7 @@ public class GameTracker {
 		mWin = mWin + 1;
 	}
 	
-	public void addLose() {
+	public void addLoss() {
 		mLose = mLose + 1;
 	}
 	
@@ -29,19 +37,10 @@ public class GameTracker {
 		mDraw = mDraw + 1;
 	}
 	
-	public void addStat() {
-		statArray.add(mWin);
-		statArray.add(mLose);
-		statArray.add(mDraw);
-	}
-	
-	public void printStats() {
-		String wins = ""+mWin;
-		String losses = ""+mLose;
-		String draw = ""+mDraw;
-		System.out.println("Wins ="+wins);
-		System.out.println("Losses = "+losses);
-		System.out.println("Drawn = "+draw);
+	public void printResults() {
+		System.out.println("Wins = "+mWin);
+		System.out.println("Draws = "+mDraw);
+		System.out.println("Losses = "+mLose);
 	}
 	
 }
